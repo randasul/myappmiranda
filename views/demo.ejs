@@ -1,0 +1,153 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+    <h1>This is Barter</h1>
+    <h2> Welcome to the Barter Demo Page</h2>
+</div>
+Learn more about what it means to barter <a href="https://en.wikipedia.org/wiki/Barter">here</a>
+<br>
+
+And isn't this a cute cat?
+<br>
+<img src="images/cat.jpg" width="200">
+<br>
+Here are some rules you should know for this website:
+<br>
+<ul>
+  <li>Always be nice!</li>
+  <li>If you meet irl to trade, do it in a public space!</li>
+  <li>Don't do anything illegal that isn't morally justifiable</li>
+<h4> Now for a little table that shows different categories and examples of trading</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Little Chotkes</th>
+      <th>Medium Items</th>
+      <th>Big Cahunas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vases</td>
+      <td>Cameras</td>
+      <td>Couches</td>
+    </tr>
+    <tr>
+      <td>Zines</td>
+      <td>Skateboards</td>
+      <td>Gym Equipment</td>
+    </tr>
+    <tr>
+      <td>Clocks</td>
+      <td>Coffee Makers</td>
+      <td>Misc. Precious Objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <hr>
+<h2>Follow the links!</h2>
+<ol>
+     <li><a href="images/dog.jpg">Dog</a></li>
+     <li><a href="images/cat.jpg">Cat</a></li>
+     <li><a href="http://www.brandeis.edu">Brandeis</a></li>
+</ol>
+<hr>
+
+<h1> Four Colors </h1>
+<ul>
+<li> red </li>
+<li> green </li>
+<li> blue </li>
+<li> black </li>
+</ul>
+
+  <img src="images/dog.jpg" width="200">
+  <hr>
+  <a href="http://www.brandeis.edu">Brandeis</a>
+
+  <h6>Count to 3 in Spanish</h6>
+  <ol>
+    <li>uno</li>
+    <li>dos</li>
+    <li>tres</li>
+  </ol>
+
+  <div>
+    This is a div element
+  </div> -->
+
+
+  <form method="post" action="/showformdata" class="bg-info">
+    Enter your name:
+    <input type="text"
+           name="fullname"
+           placeholder="your full name"><br>
+    Where do you live?
+    <input type="text"
+           name="residence"
+           placeholder="residence"><br>
+    What is your favorite color to eat?
+    <input type="color"
+           name="favoriteColor"> <br>
+
+    What type of item are you hoping to trade?
+    <select name="grade1">
+      <option>Little Chotkes</option>
+      <option>Medium Items</option>
+      <option>Big Cahunas</option>
+    </select>
+
+    <br>
+    Tell us about yourself and a little more of what you hope to trade:
+    <br>
+    <textarea name="bio" rows="10" cols="40"></textarea>
+    <br>
+    Are you over 18?<br>
+    yes <input type="radio" name="over18" value="yes"><br>
+    no  <input type="radio" name="over18" value="no"><br>
+    If you're not over 18 you should probably not be on this website
+<br>
+   What are your interests? This isn't for trade just for fun :) and making community :P <$3<br>
+    reading <input type="checkbox" name="interest" value="reading"><br>
+    playing instrument(s)  <input type="checkbox" name="interest" value="music"><br>
+    writing novels <input type="checkbox" name="interest" value="novel"><br>
+    outdoors activities
+            <input type="checkbox" name="interest" value="nature"><br>
+    contemplation
+            <input type="checkbox" name="interest" value="zen"><br>
+    <hr>
+
+    <input type="submit" value="Register now">
+  </form>
+
+  <hr>
+
+
+  <%- include('bootfooter') -%>
+You might see this dog and cat and think they're totally different
+  <div class="row">
+    <div class="col">
+      People say, "cats are too quiet!"
+      <img src="images/dog.jpg"
+       width="200">
+    </div>
+    <div class="col">
+      and that "dogs are so slobbery!"
+      <img src="images/cat.jpg"
+       width="200">
+    </div>
+  </div>
+  <br>
+  But in reality, they aren't that different. Think about this when you're on
+   Barter. We may say things are different, but they are actually quite the same.
+   So why not trade in things you're bored with? Skip the "middle man" which
+   is really the Big Guys (i.e Big Tech)
+   I may sound like a fanatic, but local bartering is the future of
+   ethical consumption!
+  Ooo- Looks like my soap box time is up :)
+  Bye for now!
+   <br>
+
+
+<%- include('bootfooter') -%>

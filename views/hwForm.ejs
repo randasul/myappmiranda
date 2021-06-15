@@ -1,0 +1,21 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <h1>
+      Let's get some info about you
+    </h1>
+
+
+    <form method="post" action="/hwForm" class="bg-info">
+        Enter your name:<input type="text" name="fullname"><br>
+        Enter your age:<input type="number" name="age"><br>
+        What type of objects are you looking to trade?<br>
+         small stuff <input type="checkbox" name="interest" value="small"><br>
+         medium things  <input type="checkbox" name="interest" value="medium"><br>
+         large items <input type="checkbox" name="interest" value="large"><br>
+        <input type="submit" value="Register now">
+        Are you over 18? You must be 18 to Barter (we're just double checking)<br>
+        yes <input type="radio" name="over18" value="yes"><br>
+        no  <input type="radio" name="over18" value="no"><br>
+    </form>
+
+<%- include('bootfooter') -%>
