@@ -1,9 +1,16 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
-Dear <%= fullname %>,<br>
+
+<div class="jumbotron">
+  <h1>HW Form!</h1>
+</div>
+
+<div class="jumbotron" action="/hwFormData">
+  Dear <%= fullname %>,<br>
 Thanks for your response!<br>
 You are <%= age %> years old<br>
 You are looking for <%=interest%> type(s) of stuff
+</div>
 
 We'll be in touch soon!
 xoxo Barter

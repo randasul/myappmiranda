@@ -192,6 +192,22 @@ app.get("/omelet",
     }
 })
 
+app.get("/hwForm", (req,res) => {
+  res.render("hwForm")
+})
+
+app.post("/hwForm", (req,res) => {
+  const fullname = req.body.fullname
+  const age = req.body.age
+  const interest = req.body.interest
+  const over18 = req.body.over18
+  res.locals.fullname= fullname
+  res.locals.age= age
+  res.locals.interest= interest
+  res.locals.over18= over18
+  res.render("hwFormData")
+})
+
 app.get('/art', (req,res) => {
   res.render('artFun')
 })
