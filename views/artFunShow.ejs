@@ -18,10 +18,10 @@
 <% results.map((art) => {%>
 <div style="border-top:thick solid blue; margin:20; padding:10">
     <h1 class="bg-primary"> <%= art.title %> </h1>
-    <a href="<%= art.href %>"> <%= art.href %> </a>
+    <a href="<%=art.href%>" <%= art.href %> </a>
     <div class="row">
         <div class="col">
-
+          <img src="https://www.artic.edu/iiif/2/{<%=art.jpg%>}/full/843,/0/default.jpg">
             <img src="<%=(art.thumbnail.lqip)%>" width="50">
         </div>
     </div>
