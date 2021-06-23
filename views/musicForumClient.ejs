@@ -1,0 +1,51 @@
+
+
+<div class="jumbotron">
+
+  <h1> Music Forum </h1>
+  <h2>instruments | cds | records | amps | mics | eps | care equipment | + more  </h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr><th>Item</th><th>Description</th><th>method</th><th>seeking</th><th>contact</th></tr>
+    </thead>
+    <tbody>
+   <% for(let i=0; i< music.length; i++){
+      music = music[i]
+      console.log(`i=${i} document=${music}`)
+  %>
+    <tr>
+      <td><%= music.item %></td>
+      <td><%= music.description %></td>
+      <td><%= music.customselect %></td>
+      <td><%= music.iwant %></td>
+      <td><%= music.contact %></td>
+      <td>
+          <% if (user.id==apikey.userId) {%>
+              <a href="/apikeyremove/<%= apikey._id %>"> X </a>
+          <%}%>
+          <%=  apikey.userId %>
+      </td>
+
+    </tr>
+
+  <%}%>
+
+  <h2>Add another music post?</h2>
+  <a href="/music">Music Forum</a>
+  <!-- <form method="post" action="/music">
+      I want to trade: <input type="text" name="item"><br>
+      Description (be honest!):<input type="text" name="description"> <br>
+      Preferred method of trade:
+        <select class="custom-select">
+              <option value="public">Public Spot Meetup (default)</option>
+              <option value="tucasa">I come to you: Home Pickup</option>
+              <option value="micasa">You come to me: Home Pickup</option>
+              <option value="mail">Mail</option>
+        </select>
+      In return I'm seeking: <input type="text" name="iwant">
+      You can contact me via: <input type="text" name="contact">
+      <input type="submit" value="store">
+  </form> -->
+  </div>
+
+  <!-- Hello World! -->

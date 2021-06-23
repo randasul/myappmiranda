@@ -159,6 +159,39 @@ app.post('/storeTodo',(req,res) => {
   res.render('todo')
 })
 
+app.get("/music", async (req,res,next) => {
+  res.render('music')
+})
+
+const Music = require('./models/Music')
+
+app.post("/music",
+  async (req,res,next) => {
+    const item = req.body.item
+    const description = req.body.description
+    const customselect= req.body.customselect
+    const iwant=req.body.iwant
+    const contact= req.body.contact
+    // const apikeydoc = new APIKey({
+    //   userId:req.user._id,
+    //   domainName:domainName,
+    //   apikey:apikey
+    // })
+  //  const result = await apikeydoc.save()
+  //  console.log('result=')
+//    console.dir(result)
+    res.redirect('/music')
+})
+
+
+
+// app.get('/apikeys', isLoggedIn,
+//   async (req,res,next) => {
+//     res.locals.apikeys = await APIKey.find({userId:req.user._id})
+//     console.log('apikeys='+JSON.stringify(res.locals.apikeys.length))
+//     res.render('apikeys')
+//   })
+
 // Here is where we will explore using forms!
 
 
