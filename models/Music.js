@@ -12,4 +12,4 @@ var musicSchema = Schema( {
   contact: String,
 } );
 
-module.exports = mongoose.model( 'Music', apikeySchema );
+module.exports = mongoose.model( 'Music', musicSchema );

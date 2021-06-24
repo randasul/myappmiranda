@@ -159,38 +159,53 @@ app.post('/storeTodo',(req,res) => {
   res.render('todo')
 })
 
-app.get("/music", async (req,res,next) => {
+const Music = require('./models/Music')
+
+app.get('/music', async (req,res,next) => {
   res.render('music')
 })
 
-const Music = require('./models/Music')
-
 app.post("/music",
+  isLoggedIn,
   async (req,res,next) => {
     const item = req.body.item
     const description = req.body.description
-    const customselect= req.body.customselect
-    const iwant=req.body.iwant
-    const contact= req.body.contact
-    // const apikeydoc = new APIKey({
-    //   userId:req.user._id,
-    //   domainName:domainName,
-    //   apikey:apikey
-    // })
-  //  const result = await apikeydoc.save()
-  //  console.log('result=')
-//    console.dir(result)
-    res.redirect('/music')
-})
+    const customselect = req.body.customselect
+    const iwant = req.body.iwant
+    const contact = req.body.contact
+
+    const musicpiece = new Music({
+      userId:req.user._id,
+      item:item,
+      description:description,
+      customselect:customselect,
+      iwant:iwant,
+      contact:contact,
+    })
+
+    const result = await musicpiece.save()
+    console.log('result=')
+    console.dir(result)
+    res.redirect('/musics')
+  })
+
+  app.get('/musics', isLoggedIn,
+  async (req,res,next) => {
+    res.locals.musics = await Music.find({userId:req.user._id})
+    console.log('musics='+JSON.stringify(res.locals.musics.length))
+    res.render('musics')
+  })
+
+  app.get('/musicremove/:musicpiece_id', isLoggedIn,
+  async (req,res,next) => {
+    const musicpiece_id = req.params.musicpiece_id
+    console.log(`id=${musicpiece_id}`)
+    await Music.deleteOne({_id:musicpiece_id})
+    res.redirect('/musics')
+  })
 
 
 
-// app.get('/apikeys', isLoggedIn,
-//   async (req,res,next) => {
-//     res.locals.apikeys = await APIKey.find({userId:req.user._id})
-//     console.log('apikeys='+JSON.stringify(res.locals.apikeys.length))
-//     res.render('apikeys')
-//   })
 
 // Here is where we will explore using forms!
 
