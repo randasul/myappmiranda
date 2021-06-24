@@ -9,7 +9,7 @@
       <tr><th>Item</th><th>Description</th><th>Customselect</th>
       <th>Iwant</th><th>Contact</th><th>userId</th></tr>
 
-      <% for(let i=0; i < musics.length; i++ {
+      <% for(let i=0; i < musics.length; i++ ){
         music=musics[i]
         console.log(`i=${i} musicDocument=${music}`)
       %>
@@ -21,12 +21,6 @@
           <td><%= music.iwant %></td>
           <td><%= music.contact %></td>
 
-          <td>
-            <% if (user.id == music.userId) { %>
-            <a href="/musicremove/<%= music._id %>">X</a>}
-            <% } %>
-            <%= music.userId %>
-          </td>
         </tr>
       <%}%>
 

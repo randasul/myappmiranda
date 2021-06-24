@@ -16,6 +16,19 @@ var debug = require("debug")("personalapp:server");
 // Now we create the server
 const app = express();
 
+const mongoose = require( 'mongoose' );
+//mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
+mongoose.connect( 'mongodb://localhost/authDemo');
+//const mongoDB_URI = process.env.MONGODB_URI
+//mongoose.connect(mongoDB_URI)
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!!!")
+});
+
+
 // Here we specify that we will be using EJS as our view engine
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -166,7 +179,7 @@ app.get('/music', async (req,res,next) => {
 })
 
 app.post("/music",
-  isLoggedIn,
+
   async (req,res,next) => {
     const item = req.body.item
     const description = req.body.description
@@ -175,7 +188,7 @@ app.post("/music",
     const contact = req.body.contact
 
     const musicpiece = new Music({
-      userId:req.user._id,
+
       item:item,
       description:description,
       customselect:customselect,
@@ -189,14 +202,14 @@ app.post("/music",
     res.redirect('/musics')
   })
 
-  app.get('/musics', isLoggedIn,
+  app.get('/musics',
   async (req,res,next) => {
-    res.locals.musics = await Music.find({userId:req.user._id})
+    res.locals.musics = await Music.find({})
     console.log('musics='+JSON.stringify(res.locals.musics.length))
     res.render('musics')
   })
 
-  app.get('/musicremove/:musicpiece_id', isLoggedIn,
+  app.get('/musicremove/:musicpiece_id',
   async (req,res,next) => {
     const musicpiece_id = req.params.musicpiece_id
     console.log(`id=${musicpiece_id}`)
