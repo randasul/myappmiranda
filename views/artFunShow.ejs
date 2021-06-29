@@ -1,5 +1,5 @@
 <%- include('bootheader') -%>
-
+<link rel='stylesheet' href='/stylesheets/style2.css' />
 <%- include('menubar') -%>
 
 <div class="jumbotron">
@@ -16,8 +16,8 @@
 </form>
 
 <% results.map((art) => {%>
-<div style="border-top:thick solid blue; margin:20; padding:10">
-    <p class="bg-warning"> <%= art.title %> </p>
+<div style="margin:20; padding:10">
+    <p> <%= art.title %> </p>
 
     <div class="row">
         <div class="col">

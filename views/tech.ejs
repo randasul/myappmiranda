@@ -1,0 +1,28 @@
+<%- include('bootheader') -%>
+  <link rel='stylesheet' href='/stylesheets/style2.css' />
+<%- include('menubar') -%>
+
+  <div class="jumbotron">
+    <h1> Technology Forum </h1>
+    <h2> Computers | Cabels | TVs | Tablets | Routers | Chargers | ACs | + more </h2>
+
+    <table class="table table-bordered table striped">
+
+      <h2> Add another technology post?</h2>
+      <form method="post" action="/tech">
+          I want to trade: <input type="text" name="item"><br>
+          Description (be honest!):<input type="text" name="description" size="100"> <br>
+          Preferred method of trade:
+            <select name="customselect">
+              <option value="Public-Spot-Meetup">Public Spot Meetup (default)</option>
+              <option value="I-Come-To-You">I come to you: Home Pickup</option>
+              <option value="You-Come-To-Me">You come to me: Home Pickup</option>
+              <option value="Mail">Mail</option>
+            </select> <br>
+          In return I'm seeking: <input type="text" name="iwant"> <br>
+          You can contact me via: <input type="text" name="contact"> <br>
+          <input type="submit" value="store">
+      </form>
+  </div>
+
+  <%- include('bootfooter') -%>

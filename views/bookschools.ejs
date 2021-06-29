@@ -1,0 +1,48 @@
+<%- include('bootheader') -%>
+  <link rel='stylesheet' href='/stylesheets/style2.css' />
+<%- include('menubar') -%>
+
+
+<div class="jumbotron">
+  <h1> Book and School Supplies Forum </h1>
+  <h2> Books | Writing Utensils | Magazines | Calculators | Folders | Binders | Textbooks | + more </h2>
+  <table class="table table-bordered table striped">
+    <thead>
+      <tr><th>Item</th><th>Description</th><th>Pickup Method</th>
+      <th>I want</th><th>Contact</th></tr>
+
+      <% for(let i=0; i < bookschools.length; i++ ){
+        bookschool=bookschools[i]
+        console.log(`i=${i} bookschoolDocument=${bookschool}`)
+      %>
+
+        <tr>
+          <td><%= bookschool.item %></td>
+          <td><%= bookschool.description %></td>
+          <td><%= bookschool.customselect %></td>
+          <td><%= bookschool.iwant %></td>
+          <td><%= bookschool.contact %></td>
+
+        </tr>
+      <%}%>
+
+  <h2> Add another book/school supplies post? </h2>
+  <form method="post" action="/bookschool">
+      I want to trade: <input type="text" name="item"><br>
+      Description (be honest!):<input type="text" name="description" size="100"> <br>
+      Preferred method of trade:
+        <select name="customselect">
+          <option value="Public-Spot-Meetup">Public Spot Meetup (default)</option>
+          <option value="I-Come-To-You">I come to you: Home Pickup</option>
+          <option value="You-Come-To-Me">You come to me: Home Pickup</option>
+          <option value="Mail">Mail</option>
+        </select><br>
+      In return I'm seeking: <input type="text" name="iwant">
+      You can contact me via: <input type="text" name="contact">
+      <input type="submit" value="store">
+  </form>
+  <hr>
+</div>
+
+  <!-- Hello World! -->
+<%- include('bootfooter') -%>

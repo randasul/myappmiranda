@@ -1,9 +1,12 @@
 <%- include('bootheader') -%>
+  <link rel='stylesheet' href='/stylesheets/style2.css' />
+
 
 <%- include('menubar') -%>
 
 
 <div class="jumbotron">
+    <h1> Music Forum </h1>
     <h2> instruments | cds | records | amps | mics | eps | care equipment | + more </h2>
   <table class="table table-bordered table striped">
     <thead>
@@ -28,13 +31,13 @@
   <h2> Add another music post? </h2>
   <form method="post" action="/music">
       I want to trade: <input type="text" name="item"><br>
-      Description (be honest!):<input type="text" name="description"> <br>
+      Description (be honest!):<input type="text" name="description" size="100"> <br>
       Preferred method of trade:
         <select name="customselect">
-              <option value="public">Public Spot Meetup (default)</option>
-              <option value="tucasa">I come to you: Home Pickup</option>
-              <option value="micasa">You come to me: Home Pickup</option>
-              <option value="mail">Mail</option>
+              <option value="Public-Spot-Meetup">Public Spot Meetup (default)</option>
+              <option value="I-Come-To-You">I come to you: Home Pickup</option>
+              <option value="You-Come-To-Me">You come to me: Home Pickup</option>
+              <option value="Mail">Mail</option>
         </select><br>
       In return I'm seeking: <input type="text" name="iwant">
       You can contact me via: <input type="text" name="contact">

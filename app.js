@@ -217,9 +217,185 @@ app.post("/music",
     res.redirect('/musics')
   })
 
+  const ArtForum = require('./models/ArtForum')
 
+  app.get('/artForum', async (req,res,next) => {
+    res.render('artForum')
+  })
 
+  app.post("/artForum",
 
+    async (req,res,next) => {
+      const item = req.body.item
+      const description = req.body.description
+      const customselect = req.body.customselect
+      const iwant = req.body.iwant
+      const contact = req.body.contact
+
+      const artforumpiece = new ArtForum({
+
+        item:item,
+        description:description,
+        customselect:customselect,
+        iwant:iwant,
+        contact:contact,
+      })
+
+      const result = await artforumpiece.save()
+      console.log('result=')
+      console.dir(result)
+      res.redirect('/artForums')
+    })
+
+    app.get('/artForums',
+    async (req,res,next) => {
+      res.locals.artForums = await ArtForum.find({})
+      console.log('artforums='+JSON.stringify(res.locals.artForums.length))
+      res.render('artForums')
+    })
+
+    app.get('/artForumremove/:artforumpiece_id',
+    async (req,res,next) => {
+      const artforumpiece_id = req.params.artforumpiece_id
+      console.log(`id=${artforumpiece_id}`)
+      await ArtForum.deleteOne({_id:artforumpiece_id})
+      res.redirect('/artforums')
+    })
+
+    const Bookschool = require('./models/Bookschool')
+
+    app.get('/bookschool', async (req,res,next) => {
+      res.render('bookschool')
+    })
+
+    app.post("/bookschool",
+
+      async (req,res,next) => {
+        const item = req.body.item
+        const description = req.body.description
+        const customselect = req.body.customselect
+        const iwant = req.body.iwant
+        const contact = req.body.contact
+
+        const bookschoolpiece = new Bookschool({
+
+          item:item,
+          description:description,
+          customselect:customselect,
+          iwant:iwant,
+          contact:contact,
+        })
+
+        const result = await bookschoolpiece.save()
+        console.log('result=')
+        console.dir(result)
+        res.redirect('/bookschools')
+      })
+
+      app.get('/bookschools',
+      async (req,res,next) => {
+        res.locals.bookschools = await Bookschool.find({})
+        console.log('bookschools='+JSON.stringify(res.locals.bookschools.length))
+        res.render('bookschools')
+      })
+
+      app.get('/bookschoolremove/:bookschoolpiece_id',
+      async (req,res,next) => {
+        const bookschoolpiece_id = req.params.bookschoolpiece_id
+        console.log(`id=${bookschoolpiece_id}`)
+        await Bookschool.deleteOne({_id:bookschoolpiece_id})
+        res.redirect('/bookschools')
+      })
+
+      const Household = require('./models/Household')
+
+      app.get('/household', async (req,res,next) => {
+        res.render('household')
+      })
+
+      app.post("/household",
+
+        async (req,res,next) => {
+          const item = req.body.item
+          const description = req.body.description
+          const customselect = req.body.customselect
+          const iwant = req.body.iwant
+          const contact = req.body.contact
+
+          const householdpiece = new Household({
+
+            item:item,
+            description:description,
+            customselect:customselect,
+            iwant:iwant,
+            contact:contact,
+          })
+
+          const result = await householdpiece.save()
+          console.log('result=')
+          console.dir(result)
+          res.redirect('/households')
+        })
+
+        app.get('/households',
+        async (req,res,next) => {
+          res.locals.households = await Household.find({})
+          console.log('households='+JSON.stringify(res.locals.households.length))
+          res.render('households')
+        })
+
+        app.get('/householdremove/:householdpiece_id',
+        async (req,res,next) => {
+          const householdpiece_id = req.params.householdpiece_id
+          console.log(`id=${householdpiece_id}`)
+          await Household.deleteOne({_id:householdpiece_id})
+          res.redirect('/households')
+        })
+
+        const Tech = require('./models/Tech')
+
+        app.get('/tech', async (req,res,next) => {
+          res.render('tech')
+        })
+
+        app.post("/tech",
+
+          async (req,res,next) => {
+            const item = req.body.item
+            const description = req.body.description
+            const customselect = req.body.customselect
+            const iwant = req.body.iwant
+            const contact = req.body.contact
+
+            const musicpiece = new Tech({
+
+              item:item,
+              description:description,
+              customselect:customselect,
+              iwant:iwant,
+              contact:contact,
+            })
+
+            const result = await techpiece.save()
+            console.log('result=')
+            console.dir(result)
+            res.redirect('/techs')
+          })
+
+          app.get('/techs',
+          async (req,res,next) => {
+            res.locals.techs = await Tech.find({})
+            console.log('techs='+JSON.stringify(res.locals.techs.length))
+            res.render('techs')
+          })
+
+          app.get('/techremove/:techpiece_id',
+          async (req,res,next) => {
+            const techpiece_id = req.params.techpiece_id
+            console.log(`id=${techpiece_id}`)
+            await Tech.deleteOne({_id:techpiece_id})
+            res.redirect('/techs')
+          })
 // Here is where we will explore using forms!
 
 
