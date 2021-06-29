@@ -7,8 +7,9 @@
 
 <div class="jumbotron">
     <h1> Music Forum </h1>
-    <h2> instruments | cds | records | amps | mics | eps | care equipment | + more </h2>
+    <h2> Instruments | Cds | Records | Amps | Mics | Eps | Care Equipment | + more </h2>
   <table class="table table-bordered table striped">
+
     <thead>
       <tr><th>Item</th><th>Description</th><th>Pickup Method</th>
       <th>I want</th><th>Contact</th></tr>
@@ -28,6 +29,7 @@
         </tr>
       <%}%>
 
+
   <h2> Add another music post? </h2>
   <form method="post" action="/music">
       I want to trade: <input type="text" name="item"><br>
@@ -39,9 +41,10 @@
               <option value="You-Come-To-Me">You come to me: Home Pickup</option>
               <option value="Mail">Mail</option>
         </select><br>
-      In return I'm seeking: <input type="text" name="iwant">
+      In return I'm seeking: <input type="text" name="iwant"><br>
       You can contact me via: <input type="text" name="contact">
       <input type="submit" value="store">
+  <br>
   </form>
   <hr>
 </div>

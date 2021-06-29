@@ -18,7 +18,7 @@ const app = express();
 
 const mongoose = require( 'mongoose' );
 //mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
-mongoose.connect( 'mongodb://localhost/authDemo');
+mongoose.connect( `mongodb+srv://Randa-S:<password>@myappmiranda.bimex.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 //const mongoDB_URI = process.env.MONGODB_URI
 //mongoose.connect(mongoDB_URI)
 
