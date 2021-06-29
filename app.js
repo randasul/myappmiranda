@@ -483,19 +483,19 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-//Here we set the process.env.PORT to use
-const process.env.process.env.PORT = "5000";
-app.set("process.env.PORT", process.env.PORT);
+//Here we set the port to use
+const port = "5000";
+app.set("port", port);
 
 // and now we startup the server listening on that port
 const http = require("http");
 const server = http.createServer(app);
 
-server.listen(process.env.PORT);
+server.listen(port);
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === "string" ? "pipe " + addr : "process.env.PORT " + addr.process.env.PORT;
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
   debug("Listening on " + bind);
 }
 
@@ -504,7 +504,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof process.env.PORT === "string" ? "Pipe " + process.env.PORT : "process.env.PORT " + process.env.PORT;
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -525,4 +525,4 @@ server.on("error", onError);
 
 server.on("listening", onListening);
 
-module.exprocess.env.PORTs = app;
+module.exports = app;
