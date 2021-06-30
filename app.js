@@ -18,9 +18,10 @@ const app = express();
 
 const mongoose = require( 'mongoose' );
 //mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
-mongoose.connect( 'mongodb://localhost/authDemo');
-//const mongoDB_URI = process.env.MONGODB_URI
-//mongoose.connect(mongoDB_URI)
+//mongoose.connect( 'mongodb://localhost/authDemo');
+mongoose.connect(`mongodb+srv://Randa-S:<beepIS77mother!>@barter.qyh1o.mongodb.net/myapp?retryWrites=true&w=majority`);
+const mongoDB_URI = process.env.MONGODB_URI
+mongoose.connect(mongoDB_URI)
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -217,50 +218,50 @@ app.post("/music",
     res.redirect('/musics')
   })
 
-  const ArtForum = require('./models/ArtForum')
-
-  app.get('/artForum', async (req,res,next) => {
-    res.render('artForum')
-  })
-
-  app.post("/artForum",
-
-    async (req,res,next) => {
-      const item = req.body.item
-      const description = req.body.description
-      const customselect = req.body.customselect
-      const iwant = req.body.iwant
-      const contact = req.body.contact
-
-      const artforumpiece = new ArtForum({
-
-        item:item,
-        description:description,
-        customselect:customselect,
-        iwant:iwant,
-        contact:contact,
-      })
-
-      const result = await artforumpiece.save()
-      console.log('result=')
-      console.dir(result)
-      res.redirect('/artForums')
-    })
-
-    app.get('/artForums',
-    async (req,res,next) => {
-      res.locals.artForums = await ArtForum.find({})
-      console.log('artforums='+JSON.stringify(res.locals.artForums.length))
-      res.render('artForums')
-    })
-
-    app.get('/artForumremove/:artforumpiece_id',
-    async (req,res,next) => {
-      const artforumpiece_id = req.params.artforumpiece_id
-      console.log(`id=${artforumpiece_id}`)
-      await ArtForum.deleteOne({_id:artforumpiece_id})
-      res.redirect('/artforums')
-    })
+  // const ArtForum = require('./models/artForum')
+  //
+  // app.get('/artForum', async (req,res,next) => {
+  //   res.render('artForum')
+  // })
+  //
+  // app.post("/artForum",
+  //
+  //   async (req,res,next) => {
+  //     const item = req.body.item
+  //     const description = req.body.description
+  //     const customselect = req.body.customselect
+  //     const iwant = req.body.iwant
+  //     const contact = req.body.contact
+  //
+  //     const artforumpiece = new ArtForum({
+  //
+  //       item:item,
+  //       description:description,
+  //       customselect:customselect,
+  //       iwant:iwant,
+  //       contact:contact,
+  //     })
+  //
+  //     const result = await artforumpiece.save()
+  //     console.log('result=')
+  //     console.dir(result)
+  //     res.redirect('/artForums')
+  //   })
+  //
+  //   app.get('/artForums',
+  //   async (req,res,next) => {
+  //     res.locals.artForums = await ArtForum.find({})
+  //     console.log('artforums='+JSON.stringify(res.locals.artForums.length))
+  //     res.render('artForums')
+  //   })
+  //
+  //   app.get('/artForumremove/:artforumpiece_id',
+  //   async (req,res,next) => {
+  //     const artforumpiece_id = req.params.artforumpiece_id
+  //     console.log(`id=${artforumpiece_id}`)
+  //     await ArtForum.deleteOne({_id:artforumpiece_id})
+  //     res.redirect('/artforums')
+  //   })
 
     const Bookschool = require('./models/Bookschool')
 
